@@ -1,0 +1,54 @@
+.quiz-wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.alkanes-quiz {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  width: 500px;
+  row-gap: 50px;
+}
+.alkanes-quiz__input {
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  font-size: 17px;
+  border-radius: 5px;
+}
+.alkanes-quiz__input:focus {
+  font-weight: bold;
+}
+.alkanes-quiz__alkane-info-container {
+  position: relative;
+}
+.alkanes-quiz__alkane-name-container {
+  font-size: 40px;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.8);
+  background-color: white;
+  padding: 10px 50px;
+}
+.alkanes-quiz__alkane-formula-container {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  z-index: -1;
+  color: white;
+  background-color: #f2059f;
+  font-weight: bold;
+  font-size: 20px;
+  bottom: -25px;
+  transition: all 0.5s;
+}
+.alkanes-quiz__alkane-formula-container--hidden {
+  opacity: 0;
+}
+.alkanes-quiz__alkane-formula-container--active {
+  opacity: 1;
+}

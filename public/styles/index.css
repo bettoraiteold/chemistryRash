@@ -1,0 +1,17 @@
+.website-title-container {
+  display: inline-block;
+}
+.navbar {
+  display: flex;
+}
+.navbar__website-title {
+  margin: 0;
+  padding: 10px;
+  color: white;
+  font-size: 40px;
+}
+.navbar__website-logo {
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+}

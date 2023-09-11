@@ -38,4 +38,8 @@
   .navbar__website-title {
     font-size: 20px;
   }
+  .navbar__website-logo {
+    height: 30px;
+    width: 30px;
+  }
 }

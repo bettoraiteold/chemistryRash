@@ -7,14 +7,14 @@ const quizTitle = document.getElementById("quiz-title");
 const alkanes = {
   CH4: "Метан",
   C2H6: "Этан",
-  C3H8: "Пропан",
-  C4H10: "Бутан",
-  C5H12: "Пентан",
-  C6H14: "Гексан",
-  C7H16: "Гептан",
-  C8H18: "Октан",
-  C9H20: "Нонан",
-  C1H22: "Декан",
+  // C3H8: "Пропан",
+  // C4H10: "Бутан",
+  // C5H12: "Пентан",
+  // C6H14: "Гексан",
+  // C7H16: "Гептан",
+  // C8H18: "Октан",
+  // C9H20: "Нонан",
+  // C1H22: "Декан",
 };
 const radicals = {
   CH4: "Метанaaa",
@@ -42,6 +42,9 @@ class ElementsList {
   isListFinished() {
     return this.elementIndex == this.elementsNameFormulaArr.length;
   }
+  resetList() {
+    this.elementIndex = 0;
+  }
 }
 const elementsList = new ElementsList(
   Object.entries(quizTitle.innerText.toLowerCase() == "alkanes" ? alkanes : radicals)
@@ -62,6 +65,12 @@ skipButton.addEventListener("click", () => {
   displayElementFormula();
   console.log("hi");
 });
+replayButton.addEventListener("click", () => {
+  elementsList.resetList();
+  displayElementName();
+  quizInput.disabled = false;
+  console.log("reset");
+});
 function clearInput() {
   quizInput.value = "";
 }
@@ -72,7 +81,7 @@ function moveToNextQuestion() {
   elementsList.moveToNextElement();
   displayElementName();
   if (elementsList.isListFinished()) {
-    quizInput.style.display = "none";
+    quizInput.disabled = true;
   } else {
     hideElementFormula();
   }
@@ -84,8 +93,8 @@ function displayElementName() {
     return;
   }
   elementNameContainer.innerText = "👍";
-  elementNameContainer.style.fontSize = "60px";
-  elementNameContainer.style.color = "white";
+  // elementNameContainer.style.fontSize = "60px";
+  // elementNameContainer.style.color = "white";
 }
 function displayElementFormula() {
   const elementFormula = elementsList.getCurrentElementFormula();

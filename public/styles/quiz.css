@@ -16,6 +16,7 @@
   flex-flow: column;
   align-items: center;
   row-gap: 70px;
+  position: relative;
 }
 .quiz__element-info-container {
   display: flex;
@@ -55,11 +56,13 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   font-size: 15px;
 }
+
 .quiz__input:focus {
   font-weight: bold;
   font-size: 15px;
 }
-.quiz__skip-btn {
+.quiz__skip-btn,
+.quiz__replay-btn {
   padding: 10px 30px;
   color: white;
   font-weight: bold;
@@ -73,6 +76,12 @@
 .quiz__skip-btn:hover {
   background-color: rgba(0, 0, 0, 0.5);
 }
-.quiz__skip-btn:active {
+.quiz__skip-btn:active,
+.quiz__replay-btn:active {
   background-color: #aa1e79;
 }
+/* .quiz__replay-btn {
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+} */

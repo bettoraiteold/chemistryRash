@@ -26,6 +26,13 @@
   animation: rotating 10s infinite linear;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+.header {
+  height: 100vh;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.quizzes-list__elements-quiz {
+  height: 100vh;
+}
 @keyframes rotating {
   from {
     transform: rotate(0deg);

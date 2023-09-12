@@ -6,16 +6,33 @@
     <title>ChemistryRash</title>
     <link rel="stylesheet" href="styles/default.css" />
     <link rel="stylesheet" href="styles/quiz.css" />
+    <link rel="stylesheet" href="styles/alkanes.css" />
+    \
+    <link rel="stylesheet" href="styles/quiz-page.css" />
+    <link rel="stylesheet" href="styles/quiz-page-navbar.css" />
     <script src="js/app.js" defer></script>
   </head>
   <body>
-    <a href="index.html" style="color: aliceblue">back</a>
+    <nav class="navbar">
+      <ul class="navbar__links">
+        <li class="navbar__link">
+          <a href="index.html" style="color: aliceblue">
+            <img
+              class="home-link__icon"
+              src="rcs/icons/home_FILL0_wght400_GRAD0_opsz24.svg"
+              alt=""
+            />
+          </a>
+        </li>
+      </ul>
+    </nav>
+
     <div class="quiz-container">
       <header class="quiz-container__title-container">
         <h1 class="quiz-container__title" id="quiz-title">Alkanes</h1>
       </header>
 
-      <main class="quiz">
+      <div class="quiz">
         <div class="quiz__element-info-container">
           <p class="quiz__element-name-container" id="element-name-container">Element</p>
           <p
@@ -25,10 +42,20 @@
             Formula
           </p>
         </div>
-        <input class="quiz__input" maxlength="15" type="text" name="quiz-input" id="quiz-input" />
+        <div class="quiz__input-container">
+          <input class="quiz__input" maxlength="15" type="text" name="quiz-input" id="quiz-input" />
+          <button class="quiz__submit-answer-btn" id="quiz-submit-answer-btn">
+            <img
+              class="quiz-submit-answer-btn__icon"
+              src="rcs/icons/send_FILL0_wght400_GRAD0_opsz24.svg"
+              alt=""
+            />
+          </button>
+        </div>
+
         <button class="quiz__skip-btn" id="quiz-skip-btn">Skip</button>
         <button class="quiz__replay-btn" id="quiz-replay-btn">Replay</button>
-      </main>
+      </div>
     </div>
   </body>
 </html>

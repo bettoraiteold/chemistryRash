@@ -3,22 +3,32 @@ const elementFormulaContainer = document.getElementById("element-formula-contain
 const quizInput = document.getElementById("quiz-input");
 const skipButton = document.getElementById("quiz-skip-btn");
 const replayButton = document.getElementById("quiz-replay-btn");
+const submitAnswerButton = document.getElementById("quiz-submit-answer-btn");
 const quizTitle = document.getElementById("quiz-title");
+
 const alkanes = {
   CH4: "Метан",
   C2H6: "Этан",
-  // C3H8: "Пропан",
-  // C4H10: "Бутан",
-  // C5H12: "Пентан",
-  // C6H14: "Гексан",
-  // C7H16: "Гептан",
-  // C8H18: "Октан",
-  // C9H20: "Нонан",
-  // C1H22: "Декан",
+  C3H8: "Пропан",
+  C4H10: "Бутан",
+  C5H12: "Пентан",
+  C6H14: "Гексан",
+  C7H16: "Гептан",
+  C8H18: "Октан",
+  C9H20: "Нонан",
+  C1H22: "Декан",
 };
 const radicals = {
-  CH4: "Метанaaa",
-  C2H6: "Этанaaa",
+  CH3: "Метил",
+  C2H5: "Этил",
+  C3H7: "Пропил",
+  C4H9: "Бутил",
+  C5H11: "Пентил",
+  C6H13: "Гексил",
+  C7H15: "Гептил",
+  C8H17: "Октил",
+  C9H19: "Нонил",
+  C10H21: "Декил",
 };
 class ElementsList {
   constructor(elementsNameFormulaArr) {
@@ -52,31 +62,39 @@ const elementsList = new ElementsList(
 
 quizInput.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
-    const userFormula = quizInput.value;
-    clearInput();
-    console.log(elementsList.getCurrentElementName(), elementsList.getCurrentElementFormula());
-    if (userFormula.toLowerCase() == elementsList.getCurrentElementFormula().toLowerCase()) {
-      moveToNextQuestion();
-    }
+    checkAnswer();
   }
 });
+function checkAnswer() {
+  const userFormula = quizInput.value; // Getting the user input
+  clearInput();
+  // Getting the formula of the current element to check if user's right.
+  if (userFormula.toLowerCase() == elementsList.getCurrentElementFormula().toLowerCase()) {
+    moveToNextQuestion();
+  }
+}
 
-skipButton.addEventListener("click", () => {
-  displayElementFormula();
-  console.log("hi");
-});
-replayButton.addEventListener("click", () => {
+function init() {
+  displayElementName();
   elementsList.resetList();
   displayElementName();
   quizInput.disabled = false;
-  console.log("reset");
+}
+init();
+
+submitAnswerButton.addEventListener("click", () => {
+  checkAnswer();
+});
+skipButton.addEventListener("click", () => {
+  displayElementFormula();
+});
+replayButton.addEventListener("click", () => {
+  init();
 });
 function clearInput() {
   quizInput.value = "";
 }
-(function () {
-  displayElementName();
-})();
+
 function moveToNextQuestion() {
   elementsList.moveToNextElement();
   displayElementName();

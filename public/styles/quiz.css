@@ -9,27 +9,38 @@
 .quiz-container__title {
   font-size: 50px;
   color: #ffffff;
+  position: fixed;
+  top: 0;
 }
 .quiz {
+  width: 500px;
+  top: 0;
+  bottom: 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  background-color: #8404d9;
   justify-self: center;
   display: flex;
   flex-flow: column;
+  justify-content: center;
   align-items: center;
   row-gap: 70px;
-  position: relative;
+  position: fixed;
 }
 .quiz__element-info-container {
   display: flex;
   align-items: center;
   flex-flow: column;
   position: relative;
-  border: 2px solid black;
+  width: 50%;
+  background-color: #f2059f;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
 }
 .quiz__element-name-container {
   margin: 0;
   font-size: 35px;
   font-weight: bold;
-  background-color: #ffffff;
+  color: white;
+
   padding: 10px;
   transition: 1s all;
 }
@@ -44,7 +55,9 @@
   opacity: 1;
   width: 100%;
   text-align: center;
-  background-color: aquamarine;
+  background-color: white;
+  color: black;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
   transition: all 0.5s;
 }
 .quiz__element-formula-container--hidden {
@@ -60,6 +73,12 @@
 .quiz__input:focus {
   font-weight: bold;
   font-size: 15px;
+  outline: none;
+}
+.quiz__input-container {
+  display: flex;
+  column-gap: 30px;
+  align-items: center;
 }
 .quiz__skip-btn,
 .quiz__replay-btn {

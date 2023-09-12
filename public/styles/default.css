@@ -2,7 +2,7 @@
 body {
   margin: 0;
   padding: 0;
-  height: 100vh;
+  min-height: 100vh;
   background: linear-gradient(#7503a6, #8a10be);
   font-family: "Ubuntu", sans-serif;
 }

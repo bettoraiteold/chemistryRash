@@ -27,12 +27,28 @@
       </ul>
     </nav>
 
-    <div class="quiz-container">
+    <main class="quiz-container">
       <header class="quiz-container__title-container">
         <h1 class="quiz-container__title" id="quiz-title">Alkanes</h1>
       </header>
 
       <div class="quiz">
+        <button class="quiz__options-menu-toggle-btn">
+          <img
+            class="options-menu-toggle-btn__icon"
+            src="rcs/icons/settings_FILL0_wght400_GRAD0_opsz24(1).svg"
+            alt=""
+          />
+        </button>
+        <div class="quiz__options-menu quiz__options-menu--hidden" id="quiz-options-menu">
+          <button class="quiz__options-menu-toggle-btn">
+            <img
+              class="options-menu-toggle-btn__icon"
+              src="rcs/icons/settings_FILL0_wght400_GRAD0_opsz24(1).svg"
+              alt=""
+            />
+          </button>
+        </div>
         <div class="quiz__element-info-container">
           <p class="quiz__element-name-container" id="element-name-container">Element</p>
           <p
@@ -56,6 +72,6 @@
         <button class="quiz__skip-btn" id="quiz-skip-btn">Skip</button>
         <button class="quiz__replay-btn" id="quiz-replay-btn">Replay</button>
       </div>
-    </div>
+    </main>
   </body>
 </html>

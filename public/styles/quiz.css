@@ -1,30 +1,89 @@
+/* Color Theme Swatches in HSLA */
+.Flower-portrait-1-hsla {
+  color: hsla(321, 95, 48, 1);
+}
+.Flower-portrait-2-hsla {
+  color: hsla(281, 96, 33, 1);
+}
+.Flower-portrait-3-hsla {
+  color: hsla(276, 96, 43, 1);
+}
+.Flower-portrait-4-hsla {
+  color: hsla(11, 78, 75, 1);
+}
+.Flower-portrait-5-hsla {
+  color: hsla(0, 95, 48, 1);
+}
+
 .quiz-container {
   height: 100vh;
   width: 100%;
-  display: grid;
-}
-.quiz-container__title-container {
-  justify-self: center;
-}
-.quiz-container__title {
-  font-size: 50px;
-  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   position: fixed;
   top: 0;
 }
+.quiz-container__title-container {
+  justify-self: center;
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  width: 100%;
+}
+.quiz-container__title {
+  font-size: 200px;
+  color: #ffffff;
+  text-align: left;
+  text-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
+}
 .quiz {
   width: 500px;
-  top: 0;
-  bottom: 0;
+  height: 90%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  background-color: #8404d9;
+  background-color: #50c878;
+  border-radius: 10px;
   justify-self: center;
   display: flex;
   flex-flow: column;
   justify-content: center;
   align-items: center;
   row-gap: 70px;
-  position: fixed;
+  position: relative;
+}
+.quiz__options-menu-toggle-btn {
+  position: absolute;
+  z-index: 1;
+  top: 10px;
+  right: 10px;
+  padding: 10px;
+  border: none;
+  background-color: white;
+  border-radius: 100%;
+  height: 45px;
+  width: 45px;
+  transition: all 0.5s;
+}
+.quiz__options-menu-toggle-btn:hover {
+  background-color: rgb(216, 216, 216);
+}
+.quiz__options-menu {
+  display: flex;
+  flex-flow: column;
+  height: 50%;
+  width: 50%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 2;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  transition: all 1s;
+}
+.quiz__options-menu--hidden {
+  height: 0%;
 }
 .quiz__element-info-container {
   display: flex;
@@ -34,8 +93,11 @@
   width: 50%;
   background-color: #f2059f;
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
 }
 .quiz__element-name-container {
+  position: relative;
+  z-index: 1;
   margin: 0;
   font-size: 35px;
   font-weight: bold;
@@ -49,7 +111,6 @@
   margin: 0;
   font-weight: bold;
   font-size: 25px;
-  z-index: -1;
   top: 100%;
   right: 0%;
   opacity: 1;
@@ -104,3 +165,8 @@
   bottom: 0;
   z-index: 1;
 } */
+@media screen and (max-width: 500px) {
+  .quiz {
+    width: 90%;
+  }
+}

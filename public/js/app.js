@@ -5,7 +5,8 @@ const skipButton = document.getElementById("quiz-skip-btn");
 const replayButton = document.getElementById("quiz-replay-btn");
 const submitAnswerButton = document.getElementById("quiz-submit-answer-btn");
 const quizTitle = document.getElementById("quiz-title");
-
+const optionsMenuToggleButtons = document.querySelectorAll(".quiz__options-menu-toggle-btn");
+const quizOptionsMenu = document.getElementById("quiz-options-menu");
 const alkanes = {
   CH4: "Метан",
   C2H6: "Этан",
@@ -35,13 +36,27 @@ class ElementsList {
     // Creating an array of arrays that contains element name/formula from alkanes/radicals object
     this.elementsNameFormulaArr = elementsNameFormulaArr;
     this.elementIndex = 0;
-    this.uniqueElementIndexes = new Set();
-    this.uniqueElementIndexes.add(this.elementIndex);
+    this.usedElementIndexes = new Set();
+    this.usedElementIndexes.add(this.elementIndex);
   }
   moveToNextElement() {
     if (this.elementIndex < this.elementsNameFormulaArr.length) {
       ++this.elementIndex;
-      this.uniqueElementIndexes.add(this.elementIndex);
+      this.usedElementIndexes.add(this.elementIndex);
+    }
+  }
+  moveToRandomElement() {
+    const maxRange = this.elementsNameFormulaArr.length;
+    if (usedElementIndexes.size === this.elementsNameFormulaArr.length) {
+      return null;
+    }
+    while (true) {
+      const randIndex = Math.floor(Math.random() * maxRange);
+      if (usedElementIndexes.has(randIndex)) {
+        continue;
+      }
+      usedElementIndexes.add(randIndex);
+      this.elementIndex = randIndex;
     }
   }
   getCurrentElementName() {
@@ -57,6 +72,8 @@ class ElementsList {
   }
   resetList() {
     this.elementIndex = 0;
+    this.usedElementIndexes.clear();
+    this.usedElementIndexes.add(this.elementIndex);
   }
 }
 const elementsList = new ElementsList(
@@ -94,6 +111,12 @@ skipButton.addEventListener("click", () => {
 replayButton.addEventListener("click", () => {
   init();
 });
+optionsMenuToggleButtons.forEach((menuToggleButton) => {
+  menuToggleButton.addEventListener("click", () => {
+    quizOptionsMenu.classList.toggle("quiz__options-menu--hidden");
+  });
+});
+
 function clearInput() {
   quizInput.value = "";
 }

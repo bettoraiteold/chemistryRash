@@ -4,7 +4,6 @@
 .sidebar-container {
   position: fixed;
   display: grid;
-  align-items: start;
   grid-template-columns: auto 1fr;
   width: 30%;
   top: 0;
@@ -18,16 +17,18 @@
   right: -30%;
 }
 .sidebar-toggle-btn {
-  align-self: center;
   position: relative;
-  left: -110%;
-  border-radius: 100%;
+  left: -100%;
   border: none;
-  display: flex;
-  align-items: center;
-  justify-content: end;
+  width: 60px;
+  transition: all 1s;
+  background-color: transparent;
+  height: 10%;
 }
-.sidebar-toggle-btn--animate {
+.sidebar-toggle-btn--active {
+  height: 100%;
+}
+.sidebar-toggle-btn--active .sidebar-toggle-btn__icon {
   animation: slide 1s alternate infinite;
 }
 @keyframes slide {
@@ -35,12 +36,20 @@
     transform: translateX(0%);
   }
   to {
-    transform: translateX(-40%);
+    transform: translateX(-50%);
   }
 }
 .sidebar-toggle-btn__icon {
-  height: 40px;
-  width: 35px;
+  background-color: white;
+  border-radius: 100%;
+  height: 45px;
+  width: 45px;
+}
+.sidebar-toggle-btn__icon:hover {
+  background-color: rgb(219, 219, 219);
+}
+.sidebar-toggle-btn__icon:active {
+  background-color: rgb(173, 173, 173);
 }
 .sidebar {
   display: flex;
@@ -102,10 +111,10 @@
 
 @media screen and (max-width: 500px) {
   .sidebar-container {
-    width: 80%;
+    width: 70%;
   }
   .sidebar-container--hidden {
-    right: -80%;
+    right: -70%;
   }
   .sidebar__website-title {
     font-size: 20px;

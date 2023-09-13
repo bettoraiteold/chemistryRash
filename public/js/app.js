@@ -35,10 +35,13 @@ class ElementsList {
     // Creating an array of arrays that contains element name/formula from alkanes/radicals object
     this.elementsNameFormulaArr = elementsNameFormulaArr;
     this.elementIndex = 0;
+    this.uniqueElementIndexes = new Set();
+    this.uniqueElementIndexes.add(this.elementIndex);
   }
   moveToNextElement() {
     if (this.elementIndex < this.elementsNameFormulaArr.length) {
       ++this.elementIndex;
+      this.uniqueElementIndexes.add(this.elementIndex);
     }
   }
   getCurrentElementName() {

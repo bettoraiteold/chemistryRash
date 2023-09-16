@@ -20,10 +20,10 @@
 .quiz {
   width: 500px;
   padding-top: 100px;
+  padding-bottom: 30px;
+  border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   background-color: #50c878;
-  border-radius: 10px;
-  justify-self: top;
   display: flex;
   flex-flow: column;
   justify-content: center;
@@ -33,7 +33,7 @@
 }
 .quiz__options-menu-toggle-btn {
   position: absolute;
-  z-index: 10;
+  z-index: 3;
   top: 10px;
   right: 10px;
   padding: 10px;
@@ -56,7 +56,7 @@
   position: absolute;
   right: 0;
   top: 0;
-  z-index: 1;
+  z-index: 2;
   row-gap: 10px;
   background-color: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -84,7 +84,7 @@
 .quiz__random-mode-label {
   color: white;
 }
-.quiz__swap-formula-name-btn {
+.quiz__sidebar-btns {
   background: linear-gradient(#8404d9, #aa50e6);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
@@ -95,30 +95,36 @@
   font-weight: bold;
   transition: all 0.5s;
 }
-.quiz__swap-formula-name-btn:hover {
+
+.quiz__sidebar-btns:hover {
   background: linear-gradient(#8404d9, #a070c0);
 }
-.quiz__swap-formula-name-btn--active {
+.quiz__sidebar-btn--active {
   background-color: white;
   color: rgba(0, 0, 0, 0.5);
 }
+
 .quiz__element-info-container {
   display: flex;
   align-items: center;
   flex-flow: column;
-  position: relative;
   width: 50%;
-  background-color: #f2059f;
-  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
+  position: relative;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 .quiz__element-name-container {
   margin: 0;
+  padding: 10px;
+  width: 100%;
   font-size: 35px;
   font-weight: bold;
   color: white;
-
-  padding: 10px;
+  text-align: center;
+  background-color: #f2059f;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  position: relative;
+  z-index: 1;
   transition: 1s all;
 }
 .quiz__element-formula-container {
@@ -132,11 +138,11 @@
   width: 100%;
   text-align: center;
   background-color: black;
-  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
-  z-index: -1;
   color: white;
   transition: all 0.7s;
+  z-index: 0;
 }
 .quiz__element-formula-container--hidden {
   top: 0%;

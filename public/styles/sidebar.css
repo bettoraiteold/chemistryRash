@@ -20,7 +20,7 @@
   position: relative;
   left: -100%;
   border: none;
-  width: 60px;
+  width: 70px;
   transition: all 1s;
   background-color: transparent;
   height: 10%;
@@ -54,13 +54,18 @@
 .sidebar {
   display: flex;
   flex-flow: column;
+  padding-left: 40px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 .sidebar__website-title {
   margin-bottom: 50px;
   background-color: #f20505;
   color: white;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
   padding: 10px 0;
   padding-left: 5px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 .sidebar__link-group {
   background-color: rgba(0, 0, 0, 0.3);
@@ -83,6 +88,7 @@
   margin: 0;
   padding: 0;
   background-color: rgba(0, 0, 0, 0.1);
+  margin-bottom: 50px;
 }
 .sidebar__link {
   padding: 3px 0;

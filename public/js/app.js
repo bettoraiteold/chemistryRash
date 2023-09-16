@@ -7,6 +7,8 @@ const submitAnswerButton = document.getElementById("quiz-submit-answer-btn");
 const quizTitle = document.getElementById("quiz-title");
 const optionsMenuToggleButtons = document.querySelectorAll(".quiz__options-menu-toggle-btn");
 const quizOptionsMenu = document.getElementById("quiz-options-menu");
+const randomModeToggle = document.getElementById("quiz-random-mode-checkbox");
+const swapFormulaName = document.getElementById("quiz-swap-formula-name-btn");
 const alkanes = {
   CH4: "Метан",
   C2H6: "Этан",
@@ -47,16 +49,17 @@ class ElementsList {
   }
   moveToRandomElement() {
     const maxRange = this.elementsNameFormulaArr.length;
-    if (usedElementIndexes.size === this.elementsNameFormulaArr.length) {
+    if (this.usedElementIndexes.size === this.elementsNameFormulaArr.length) {
       return null;
     }
     while (true) {
       const randIndex = Math.floor(Math.random() * maxRange);
-      if (usedElementIndexes.has(randIndex)) {
+      if (this.usedElementIndexes.has(randIndex)) {
         continue;
       }
-      usedElementIndexes.add(randIndex);
+      this.usedElementIndexes.add(randIndex);
       this.elementIndex = randIndex;
+      break;
     }
   }
   getCurrentElementName() {
@@ -74,6 +77,13 @@ class ElementsList {
     this.elementIndex = 0;
     this.usedElementIndexes.clear();
     this.usedElementIndexes.add(this.elementIndex);
+  }
+  swapFormulaName() {
+    this.elementsNameFormulaArr.forEach((element) => {
+      const swap = element[0];
+      element[0] = element[1];
+      element[1] = swap;
+    });
   }
 }
 const elementsList = new ElementsList(
@@ -96,6 +106,7 @@ function checkAnswer() {
 
 function init() {
   displayElementName();
+  hideElementFormula();
   elementsList.resetList();
   displayElementName();
   quizInput.disabled = false;
@@ -111,6 +122,11 @@ skipButton.addEventListener("click", () => {
 replayButton.addEventListener("click", () => {
   init();
 });
+swapFormulaName.addEventListener("click", () => {
+  elementsList.swapFormulaName();
+  init();
+  swapFormulaName.classList.toggle("quiz__swap-formula-name-btn--active");
+});
 optionsMenuToggleButtons.forEach((menuToggleButton) => {
   menuToggleButton.addEventListener("click", () => {
     quizOptionsMenu.classList.toggle("quiz__options-menu--hidden");
@@ -122,7 +138,13 @@ function clearInput() {
 }
 
 function moveToNextQuestion() {
-  elementsList.moveToNextElement();
+  if (randomModeToggle.checked) {
+    console.log("hi");
+    elementsList.moveToRandomElement();
+  } else {
+    elementsList.moveToNextElement();
+  }
+
   displayElementName();
   if (elementsList.isListFinished()) {
     quizInput.disabled = true;

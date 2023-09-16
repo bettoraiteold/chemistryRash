@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="styles/default.css" />
     <link rel="stylesheet" href="styles/quiz.css" />
     <link rel="stylesheet" href="styles/alkanes.css" />
-    \
     <link rel="stylesheet" href="styles/quiz-page.css" />
     <link rel="stylesheet" href="styles/quiz-page-navbar.css" />
     <script src="js/app.js" defer></script>
@@ -16,7 +15,7 @@
     <nav class="navbar">
       <ul class="navbar__links">
         <li class="navbar__link">
-          <a href="index.html" style="color: aliceblue">
+          <a href="index.html">
             <img
               class="home-link__icon"
               src="rcs/icons/home_FILL0_wght400_GRAD0_opsz24.svg"
@@ -48,6 +47,20 @@
               alt=""
             />
           </button>
+
+          <div class="quiz__random-mode-checkbox-wrapper">
+            <label for="quiz-random-mode-checkbox" class="quiz__random-mode-label"
+              >Рандом mode</label
+            >
+            <input
+              class="quiz__random-mode-checkbox"
+              type="checkbox"
+              id="quiz-random-mode-checkbox"
+            />
+          </div>
+          <button class="quiz__swap-formula-name-btn" id="quiz-swap-formula-name-btn">
+            Только формулы mode
+          </button>
         </div>
         <div class="quiz__element-info-container">
           <p class="quiz__element-name-container" id="element-name-container">Element</p>
@@ -63,14 +76,16 @@
           <button class="quiz__submit-answer-btn" id="quiz-submit-answer-btn">
             <img
               class="quiz-submit-answer-btn__icon"
-              src="rcs/icons/send_FILL0_wght400_GRAD0_opsz24.svg"
+              src="rcs/icons/send_FILL0_wght400_GRAD0_opsz24.png"
               alt=""
             />
           </button>
         </div>
 
-        <button class="quiz__skip-btn" id="quiz-skip-btn">Skip</button>
-        <button class="quiz__replay-btn" id="quiz-replay-btn">Replay</button>
+        <button class="quiz__skip-btn" id="quiz-skip-btn">Пропустить</button>
+        <button class="quiz__replay-btn quiz__replay-btn--hidden" id="quiz-replay-btn">
+          Заново
+        </button>
       </div>
     </main>
   </body>

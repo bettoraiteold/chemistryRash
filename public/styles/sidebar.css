@@ -2,6 +2,7 @@
   background-color: rgb(255, 247, 247);
 }
 .sidebar-container {
+  z-index: 1;
   position: fixed;
   display: grid;
   grid-template-columns: auto 1fr;
@@ -24,9 +25,11 @@
   transition: all 1s;
   background-color: transparent;
   height: 10%;
+  border-radius: 10px;
 }
 .sidebar-toggle-btn--active {
   height: 100%;
+  background-color: transparent;
 }
 .sidebar-toggle-btn--active .sidebar-toggle-btn__icon {
   animation: slide 1s alternate infinite;
@@ -108,22 +111,46 @@
 }
 @media screen and (max-width: 1000px) {
   .sidebar-container {
-    width: 40%;
+    width: 60%;
   }
   .sidebar-container--hidden {
-    right: -40%;
+    right: -60%;
   }
 }
 
 @media screen and (max-width: 500px) {
   .sidebar-container {
-    width: 70%;
+    width: 75%;
   }
   .sidebar-container--hidden {
-    right: -70%;
+    right: -75%;
   }
   .sidebar__website-title {
-    font-size: 20px;
+    font-size: 15px;
+  }
+  .sidebar__link a {
+    font-size: 15px;
+  }
+  .sidebar-toggle-btn {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  .sidebar-toggle-btn--active {
+    background-color: transparent;
+  }
+  .sidebar-toggle-btn__icon {
+    height: 35px;
+    width: 35px;
+  }
+}
+@media screen and (max-width: 340px) {
+  .sidebar-container {
+    width: 80%;
+  }
+  .sidebar-container--hidden {
+    right: -80%;
+  }
+  .sidebar__website-title {
+    font-size: 15px;
   }
   .sidebar__link a {
     font-size: 15px;

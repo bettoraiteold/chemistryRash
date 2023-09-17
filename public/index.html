@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="styles/index.css" />
     <link rel="stylesheet" href="styles/quiz.css" />
     <link rel="stylesheet" href="styles/navbar.css" />
-    <script src="js/sidebar.js" defer></script>
+    <script src="js/sidebar.mjs" type="module" defer></script>
   </head>
   <body>
     <div class="sidebar-container sidebar-container--hidden" id="sidebar-container">
@@ -32,7 +32,7 @@
             <a href="radicals.html">Радикалы</a>
           </li>
           <li class="sidebar__link">
-            <a href="">А-ны/Р-лы</a>
+            <a href="radicals-and-alcanes.html">А-ны/Р-лы</a>
           </li>
         </ul>
         <p class="sidebar__link-group">Связь</p>
@@ -52,10 +52,16 @@
       <ul class="navbar__links"></ul>
     </nav>
     <main>
-      <div class="slideshow">
-        <img class="slideshow__img" src="rcs/img/" alt="" alt="" />
+      <div class="quote-container">
+        <a href="https://www.flaticon.com/free-icons/planet-earth">
+          <img class="quote-icon" src="rcs/img/planet-earth(2).png" alt="" />
+        </a>
+
+        <h1 class="quote">
+          <span style="color: #50c878">Химия</span> порадила
+          <span style="color: #50c878">мир</span>, она же его уничтожит, так что учите химию
+        </h1>
       </div>
-      <h1 class="quote">Химия порадила мир, она же его уничтожит</h1>
     </main>
     <footer></footer>
   </body>

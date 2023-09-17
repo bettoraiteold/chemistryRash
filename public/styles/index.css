@@ -11,17 +11,48 @@
   object-fit: cover;
 }
 main {
+  padding-top: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
   height: auto;
+  column-gap: 50px;
 }
 .quizzes-list__elements-quiz {
   height: 100vh;
 }
+.quote-container {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  column-gap: 50px;
+}
 .quote {
   font-size: 30px;
+  width: 200px;
+}
+.quote-icon {
+  height: 100px;
+  width: 100px;
+  background-color: white;
+  border-radius: 100%;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  animation: float 4s infinite alternate;
+}
+@keyframes float {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-60%);
+  }
+}
+.slideshow__img {
+  height: 400px;
+  border: 3px solid rgb(0, 0, 0);
+  border-radius: 5px;
 }
 @keyframes rotating {
   from {
@@ -32,11 +63,15 @@ main {
   }
 }
 @media screen and (max-width: 500px) {
-  .navbar__website-title {
-    font-size: 20px;
+  .quote-container {
+    column-gap: 25px;
   }
-  quote .navbar__website-logo {
-    height: 30px;
-    width: 30px;
+  .quote-icon {
+    height: 50px;
+    width: 50px;
+  }
+  .quote {
+    font-size: 18px;
+    width: 150px;
   }
 }

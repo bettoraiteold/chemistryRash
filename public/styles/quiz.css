@@ -94,7 +94,7 @@
   color: white;
   font-weight: bold;
   transition: all 0.5s;
-  width: 70%;
+  width: 80%;
 }
 
 .quiz__options-menu-btn:hover {
@@ -104,12 +104,9 @@
   transition: all 0.5s;
   background: linear-gradient(#6d02b4, #6d02b4);
 }
-.quiz__options-menu-replay-btn--active {
-  width: 80%;
-}
 .quiz__options-menu-btn--active {
   color: rgba(0, 0, 0, 0.5);
-  width: 80%;
+  width: 90%;
 }
 
 .quiz__element-info-container {

@@ -3,7 +3,7 @@ const elementFormulaContainer = document.getElementById("element-formula-contain
 const quizInput = document.getElementById("quiz-input");
 const skipButton = document.getElementById("quiz-skip-btn");
 const replayButton = document.getElementById("quiz-replay-btn");
-const sidebarReplayButton = document.getElementById("sidebar-replay-btn");
+const quizOptionsMenuReplayButton = document.getElementById("quiz-options-menu-replay-btn");
 const submitAnswerButton = document.getElementById("quiz-submit-answer-btn");
 const quizTitle = document.getElementById("quiz-title");
 const optionsMenuToggleButtons = document.querySelectorAll(".quiz__options-menu-toggle-btn");
@@ -22,7 +22,8 @@ const alkanes = {
   C8H18: "Октан",
   C9H20: "Нонан",
   C1H22: "Декан",
-};
+}; //// CH4 Метан C2H6 Этан C3H8 Пропан C4H10 Бутан C5H12 Пентан C6H14 Гексан C7H16 Гептан C8H18 Октан C9H20 Нонан C1H22 Декан
+
 const radicals = {
   CH3: "Метил",
   C2H5: "Этил",
@@ -125,14 +126,14 @@ replayButton.addEventListener("click", () => {
   init();
   replayButton.classList.add("quiz__replay-btn--hidden");
 });
-sidebarReplayButton.addEventListener("click", () => {
+quizOptionsMenuReplayButton.addEventListener("click", () => {
   init();
-  sidebarReplayButton.classList.toggle("quiz__sidebar-btn--active");
+  quizOptionsMenuReplayButton.classList.toggle("quiz__options-menu-replay-btn--active");
 });
 swapFormulaNameButton.addEventListener("click", () => {
   elementsList.swapFormulaName();
   init();
-  swapFormulaNameButton.classList.toggle("quiz__sidebar-btn--active");
+  swapFormulaNameButton.classList.toggle("quiz__options-menu-btn--active");
 });
 optionsMenuToggleButtons.forEach((menuToggleButton) => {
   menuToggleButton.addEventListener("click", () => {

@@ -1,39 +1,27 @@
-.website-title-container {
-  display: inline-block;
+.background {
+  opacity: 0.5;
+  width: 500px;
+  height: 500px;
+
+  z-index: -10;
 }
-.navbar {
-  padding-left: 10px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+.background__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+main {
   display: flex;
-  column-gap: 10px;
+  justify-content: center;
   align-items: center;
-  background-color: black;
-  border-bottom: 5px solid white;
-}
-.navbar__website-title {
-  margin: 0;
   color: white;
-
-  font-size: 40px;
-}
-.navbar__website-logo {
-  height: 50px;
-  width: 50px;
-  border-radius: 100%;
-  background-color: white;
-  padding: 2px;
-  position: relative;
-
-  animation: rotating 10s infinite linear;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-.header {
-  height: 100vh;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  height: auto;
 }
 .quizzes-list__elements-quiz {
   height: 100vh;
+}
+.quote {
+  font-size: 30px;
 }
 @keyframes rotating {
   from {
@@ -47,7 +35,7 @@
   .navbar__website-title {
     font-size: 20px;
   }
-  .navbar__website-logo {
+  quote .navbar__website-logo {
     height: 30px;
     width: 30px;
   }

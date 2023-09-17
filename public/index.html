@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="styles/default.css" />
     <link rel="stylesheet" href="styles/index.css" />
     <link rel="stylesheet" href="styles/quiz.css" />
+    <link rel="stylesheet" href="styles/navbar.css" />
     <script src="js/sidebar.js" defer></script>
   </head>
   <body>
@@ -34,15 +35,28 @@
             <a href="">А-ны/Р-лы</a>
           </li>
         </ul>
-        <p class="sidebar__link-group">Контакты</p>
+        <p class="sidebar__link-group">Связь</p>
+        <ul class="sidebar__links">
+          <li class="sidebar__link">
+            <a href="https://github.com/BettoRaite" target="_blank">Github</a>
+          </li>
+        </ul>
       </nav>
     </div>
 
-    <header class="header">
-      <nav class="navbar">
+    <nav class="navbar">
+      <div class="navbar__logo-container">
         <img class="navbar__website-logo" src="rcs/icons/atom-2.svg" alt="" />
         <h1 class="navbar__website-title">ChemistryRash</h1>
-      </nav>
-    </header>
+      </div>
+      <ul class="navbar__links"></ul>
+    </nav>
+    <main>
+      <div class="slideshow">
+        <img class="slideshow__img" src="rcs/img/" alt="" alt="" />
+      </div>
+      <h1 class="quote">Химия порадила мир, она же его уничтожит</h1>
+    </main>
+    <footer></footer>
   </body>
 </html>

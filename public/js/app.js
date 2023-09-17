@@ -14,14 +14,14 @@ const swapFormulaNameButton = document.getElementById("quiz-swap-formula-name-bt
 const alkanes = {
   CH4: "Метан",
   C2H6: "Этан",
-  // C3H8: "Пропан",
-  // C4H10: "Бутан",
-  // C5H12: "Пентан",
-  // C6H14: "Гексан",
-  // C7H16: "Гептан",
-  // C8H18: "Октан",
-  // C9H20: "Нонан",
-  // C1H22: "Декан",
+  C3H8: "Пропан",
+  C4H10: "Бутан",
+  C5H12: "Пентан",
+  C6H14: "Гексан",
+  C7H16: "Гептан",
+  C8H18: "Октан",
+  C9H20: "Нонан",
+  C1H22: "Декан",
 };
 const radicals = {
   CH3: "Метил",

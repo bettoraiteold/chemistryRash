@@ -1,0 +1,33 @@
+.navbar__logo-container {
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+}
+.navbar {
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  height: 60px;
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+  background-color: black;
+  border-bottom: 5px solid white;
+}
+.navbar__website-title {
+  margin: 0;
+  color: white;
+
+  font-size: 35px;
+}
+.navbar__website-logo {
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  background-color: white;
+  padding: 2px;
+  position: relative;
+
+  animation: rotating 10s infinite linear;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}

@@ -79,7 +79,7 @@ function checkAnswer() {
   const userFormula = quizInput.value; // Getting the user input
   clearInput();
   // Getting the formula of the current element to check if user's right.
-  if (userFormula.toLowerCase() == elementsList.getCurrentElementFormula().toLowerCase()) {
+  if (userFormula.toLowerCase().trim() == elementsList.getCurrentElementFormula().toLowerCase()) {
     moveToNextQuestion();
   }
 }

@@ -12,6 +12,7 @@
   display: flex;
   justify-content: start;
   align-items: center;
+  column-gap: 25px;
 }
 .navbar__link {
   list-style: none;
@@ -26,4 +27,11 @@
 }
 .navbar__link:hover {
   background-color: rgba(255, 255, 255, 0.7);
+}
+.navbar__title {
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 2px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  padding: 0 10px;
 }

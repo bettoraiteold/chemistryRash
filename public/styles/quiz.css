@@ -101,6 +101,7 @@
   background: linear-gradient(#8404d9, #a070c0);
 }
 .quiz__options-menu-replay-btn:active {
+  transition: all 0.5s;
   background: linear-gradient(#6d02b4, #6d02b4);
 }
 .quiz__options-menu-replay-btn--active {

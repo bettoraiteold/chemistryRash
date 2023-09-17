@@ -12,8 +12,9 @@
 }
 main {
   padding-top: 100px;
+  padding-left: 100px;
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   color: white;
   height: auto;
@@ -73,5 +74,9 @@ main {
   .quote {
     font-size: 18px;
     width: 150px;
+  }
+  main {
+    padding-top: 150px;
+    padding-left: 20px;
   }
 }

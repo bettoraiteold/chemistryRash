@@ -1,7 +1,6 @@
 .navbar {
   position: relative;
   display: flex;
-  display: flex;
   z-index: 10;
   padding-top: 10px;
   padding-left: 10px;
@@ -34,4 +33,10 @@
   background-color: rgba(0, 0, 0, 0.3);
   border-radius: 5px;
   padding: 0 10px;
+}
+@media screen and (max-width: 500px) {
+  .navbar__title {
+    font-size: 20px;
+    padding: 5px;
+  }
 }

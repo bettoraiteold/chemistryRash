@@ -162,25 +162,20 @@
   width: 80%;
 }
 .quiz__input {
+  position: relative;
+  z-index: 1;
   padding: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  font-size: 15px;
-  @media screen and (max-width: 500px) {
-    .quiz {
-      width: 90%;
-    }
-  }
-
+  font-size: 17px;
+  font-weight: bold;
   border-radius: 10px;
   border: none;
 }
-
 .quiz__input:focus {
   font-weight: bold;
-  font-size: 15px;
+  font-size: 17px;
   outline: none;
 }
-
 .quiz__submit-answer-btn {
   padding: 5px 8px;
   background: rgba(255, 255, 255, 0.9);

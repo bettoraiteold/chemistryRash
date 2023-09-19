@@ -8,14 +8,12 @@ const skipButton = document.getElementById("quiz-skip-btn");
 const replayButton = document.getElementById("quiz-replay-btn");
 const quizOptionsMenuReplayButton = document.getElementById("quiz-options-menu-replay-btn");
 const submitAnswerButton = document.getElementById("quiz-submit-answer-btn");
-const quizTitle = document.getElementById("quiz-title");
 const optionsMenuToggleButtons = document.querySelectorAll(".quiz__options-menu-toggle-btn");
 const quizOptionsMenu = document.getElementById("quiz-options-menu");
 const randomModeToggle = document.getElementById("quiz-random-mode-checkbox");
 const swapFormulaNameButton = document.getElementById("quiz-swap-formula-name-btn");
 class ElementsList {
   constructor(elementsNameFormulaArr) {
-    // Creating an array of arrays that contains element name/formula from alkanes/radicals object
     this.elementsNameFormulaArr = elementsNameFormulaArr;
     this.elementIndex = 0;
     this.usedElementIndexes = new Set();
@@ -76,10 +74,9 @@ quizInput.addEventListener("keydown", (event) => {
   }
 });
 function checkAnswer() {
-  const userFormula = quizInput.value; // Getting the user input
+  const userAnswer = quizInput.value;
   clearInput();
-  // Getting the formula of the current element to check if user's right.
-  if (userFormula.toLowerCase().trim() == elementsList.getCurrentElementFormula().toLowerCase()) {
+  if (userAnswer.toLowerCase().trim() == elementsList.getCurrentElementFormula().toLowerCase()) {
     moveToNextQuestion();
   }
 }
@@ -108,6 +105,9 @@ quizOptionsMenuReplayButton.addEventListener("click", () => {
   quizOptionsMenuReplayButton.classList.toggle("quiz__options-menu-replay-btn--active");
 });
 swapFormulaNameButton.addEventListener("click", () => {
+  const placeholder = quizInput.placeholder;
+  quizInput.placeholder =
+    placeholder == "впишите имя элемента" ? "впишите формулу" : "впишите имя элемента";
   elementsList.swapFormulaName();
   init();
   swapFormulaNameButton.classList.toggle("quiz__options-menu-btn--active");

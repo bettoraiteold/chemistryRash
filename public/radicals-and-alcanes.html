@@ -6,16 +6,14 @@
     <title>ChemistryRash</title>
     <link rel="stylesheet" href="styles/default.css" />
     <link rel="stylesheet" href="styles/quiz.css" />
-    <link rel="stylesheet" href="styles/alkanes.css" />
-    <link rel="stylesheet" href="styles/quiz-page.css" />
-    <link rel="stylesheet" href="styles/quiz-page-navbar.css" />
+    <link rel="stylesheet" href="styles/quiz-navbar.css" />
     <script type="module" src="js/app.mjs" defer></script>
   </head>
   <body>
     <p class="chemical-elements-list" id="chemical-elements-list">
       CH4 Метан C2H6 Этан C3H8 Пропан C4H10 Бутан C5H12 Пентан C6H14 Гексан C7H16 Гептан C8H18 Октан
-      C9H20 Нонан C1H22 Декан CH4 Метан C2H6 Этан C3H8 Пропан C4H10 Бутан C5H12 Пентан C6H14 Гексан
-      C7H16 Гептан C8H18 Октан C9H20 Нонан C1H22 Декан
+      C9H20 Нонан C10H22 Декан CH3 Метил C2H5 Этил C3H7 Пропил C4H9 Бутил C5H11 Пентил C6H13 Гексил
+      C7H15 Гептил C8H17 Октил C9H19 Нонил C10H21 Декил
     </p>
     <nav class="navbar">
       <ul class="navbar__links">
@@ -84,7 +82,14 @@
           <p class="quiz__element-name-container" id="element-name-container">Element</p>
         </div>
         <div class="quiz__input-container">
-          <input class="quiz__input" maxlength="15" type="text" name="quiz-input" id="quiz-input" />
+          <input
+            class="quiz__input"
+            maxlength="15"
+            placeholder="впишите формулу"
+            type="text"
+            name="quiz-input"
+            id="quiz-input"
+          />
           <button class="quiz__submit-answer-btn" id="quiz-submit-answer-btn">
             <img
               class="quiz-submit-answer-btn__icon"

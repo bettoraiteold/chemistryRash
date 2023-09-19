@@ -6,3 +6,6 @@ body {
   background: linear-gradient(#7503a6, #8a10be);
   font-family: "Ubuntu", sans-serif;
 }
+.chemical-elements-list {
+  display: none;
+}

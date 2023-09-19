@@ -189,6 +189,10 @@
 .quiz__submit-answer-btn:active {
   background-color: #008080;
 }
+#quiz-name,
+#quiz-name-en {
+  display: none;
+}
 .quiz__skip-btn,
 .quiz__replay-btn {
   padding: 10px 30px;

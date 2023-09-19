@@ -1,5 +1,6 @@
 import { chemicalElementsListToSubarrays } from "./elementListConversion.mjs";
-
+const quizNavbarTitle = document.getElementById("navbar-title");
+const quizTitle = document.getElementById("quiz-title");
 const chemicalElementsList = document.getElementById("chemical-elements-list");
 const elementNameContainer = document.getElementById("element-name-container");
 const elementFormulaContainer = document.getElementById("element-formula-container");
@@ -12,20 +13,23 @@ const optionsMenuToggleButtons = document.querySelectorAll(".quiz__options-menu-
 const quizOptionsMenu = document.getElementById("quiz-options-menu");
 const randomModeToggle = document.getElementById("quiz-random-mode-checkbox");
 const swapFormulaNameButton = document.getElementById("quiz-swap-formula-name-btn");
-class ElementsList {
+
+quizNavbarTitle.innerText = document.getElementById("quiz-name").innerText;
+quizTitle.innerText = document.getElementById("quiz-name-en").innerText;
+class List {
   constructor(elementsNameFormulaArr) {
     this.elementsNameFormulaArr = elementsNameFormulaArr;
     this.elementIndex = 0;
     this.usedElementIndexes = new Set();
     this.usedElementIndexes.add(this.elementIndex);
   }
-  moveToNextElement() {
+  listToNextChemicalElement() {
     if (this.elementIndex < this.elementsNameFormulaArr.length) {
       ++this.elementIndex;
       this.usedElementIndexes.add(this.elementIndex);
     }
   }
-  moveToRandomElement() {
+  listToRandomChemicalElement() {
     const maxRange = this.elementsNameFormulaArr.length;
     if (this.usedElementIndexes.size === this.elementsNameFormulaArr.length) {
       return null;
@@ -37,14 +41,14 @@ class ElementsList {
       }
       this.usedElementIndexes.add(randIndex);
       this.elementIndex = randIndex;
-      break;
+      return true;
     }
   }
-  getCurrentElementName() {
+  getChemicalElementName() {
     const element = this.elementsNameFormulaArr[this.elementIndex];
     return element?.[1];
   }
-  getCurrentElementFormula() {
+  getChemicalElementFormula() {
     const element = this.elementsNameFormulaArr[this.elementIndex];
     return element?.[0];
   }
@@ -54,6 +58,10 @@ class ElementsList {
   resetList() {
     this.elementIndex = 0;
     this.usedElementIndexes.clear();
+    if (randomModeToggle.checked) {
+      this.listToRandomChemicalElement();
+      return;
+    }
     this.usedElementIndexes.add(this.elementIndex);
   }
   swapFormulaName() {
@@ -64,52 +72,94 @@ class ElementsList {
     });
   }
 }
-const elementsList = new ElementsList(
-  chemicalElementsListToSubarrays(chemicalElementsList.innerHTML)
-);
+// Creating a chemical elements list
+const list = new List(chemicalElementsListToSubarrays(chemicalElementsList.innerHTML));
+
+// Initializing
+init();
+function init() {
+  list.resetList();
+  displayChemicalElementName();
+  hideChemicalElementFormula();
+  quizInput.disabled = false;
+}
+
+function displayChemicalElementName() {
+  const elementName = list.getChemicalElementName();
+  if (elementName) {
+    elementNameContainer.innerText = elementName;
+    return;
+  }
+  elementNameContainer.innerText = "👍";
+}
+function displayChemicalElementFormula() {
+  const chemicalElementFormula = list.getChemicalElementFormula();
+  elementFormulaContainer.innerText = chemicalElementFormula ?? "Конец.";
+  elementFormulaContainer.classList.toggle("quiz__element-formula-container--hidden");
+}
+function hideChemicalElementFormula() {
+  elementFormulaContainer.classList.add("quiz__element-formula-container--hidden");
+}
 
 quizInput.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
     checkAnswer();
   }
 });
+function clearInput() {
+  quizInput.value = "";
+}
 function checkAnswer() {
-  const userAnswer = quizInput.value;
+  const userAnswer = quizInput.value.toLowerCase().trim();
   clearInput();
-  if (userAnswer.toLowerCase().trim() == elementsList.getCurrentElementFormula().toLowerCase()) {
+  const chemicalElementFormula = list.getChemicalElementFormula().toLowerCase();
+  if (userAnswer == chemicalElementFormula) {
     moveToNextQuestion();
   }
 }
-
-function init() {
-  displayElementName();
-  hideElementFormula();
-  elementsList.resetList();
-  displayElementName();
-  quizInput.disabled = false;
+function moveToNextQuestion() {
+  if (randomModeToggle.checked) {
+    if (!list.listToRandomChemicalElement()) {
+      replay();
+    }
+  } else {
+    list.listToNextChemicalElement();
+  }
+  hideChemicalElementFormula();
+  displayChemicalElementName();
+  if (list.isListFinished()) {
+    replay();
+  }
 }
-init();
-
+function replay() {
+  quizInput.disabled = true;
+  list.elementIndex = list.elementsNameFormulaArr.length;
+  displayChemicalElementName();
+  replayButton.classList.remove("quiz__replay-btn--hidden");
+}
 submitAnswerButton.addEventListener("click", () => {
   checkAnswer();
 });
 skipButton.addEventListener("click", () => {
-  displayElementFormula();
+  displayChemicalElementFormula();
 });
 replayButton.addEventListener("click", () => {
   init();
+
   replayButton.classList.add("quiz__replay-btn--hidden");
 });
 quizOptionsMenuReplayButton.addEventListener("click", () => {
   init();
+  replayButton.classList.add("quiz__replay-btn--hidden");
   quizOptionsMenuReplayButton.classList.toggle("quiz__options-menu-replay-btn--active");
 });
 swapFormulaNameButton.addEventListener("click", () => {
   const placeholder = quizInput.placeholder;
   quizInput.placeholder =
     placeholder == "впишите имя элемента" ? "впишите формулу" : "впишите имя элемента";
-  elementsList.swapFormulaName();
-  init();
+
+  list.swapFormulaName();
+  displayChemicalElementName();
   swapFormulaNameButton.classList.toggle("quiz__options-menu-btn--active");
 });
 optionsMenuToggleButtons.forEach((menuToggleButton) => {
@@ -117,42 +167,3 @@ optionsMenuToggleButtons.forEach((menuToggleButton) => {
     quizOptionsMenu.classList.toggle("quiz__options-menu--hidden");
   });
 });
-
-function clearInput() {
-  quizInput.value = "";
-}
-
-function moveToNextQuestion() {
-  if (randomModeToggle.checked) {
-    console.log("hi");
-    elementsList.moveToRandomElement();
-  } else {
-    elementsList.moveToNextElement();
-  }
-
-  displayElementName();
-  if (elementsList.isListFinished()) {
-    quizInput.disabled = true;
-    replayButton.classList.remove("quiz__replay-btn--hidden");
-  } else {
-    hideElementFormula();
-  }
-}
-function displayElementName() {
-  const elementName = elementsList.getCurrentElementName();
-  if (elementName) {
-    elementNameContainer.innerText = elementName;
-    return;
-  }
-  elementNameContainer.innerText = "👍";
-  // elementNameContainer.style.fontSize = "60px";
-  // elementNameContainer.style.color = "white";
-}
-function displayElementFormula() {
-  const elementFormula = elementsList.getCurrentElementFormula();
-  elementFormulaContainer.innerText = elementFormula ?? "nope";
-  elementFormulaContainer.classList.toggle("quiz__element-formula-container--hidden");
-}
-function hideElementFormula() {
-  elementFormulaContainer.classList.add("quiz__element-formula-container--hidden");
-}

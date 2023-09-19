@@ -7,102 +7,14 @@
     <link rel="stylesheet" href="styles/default.css" />
     <link rel="stylesheet" href="styles/quiz.css" />
     <link rel="stylesheet" href="styles/quiz-navbar.css" />
-    <script type="module" src="js/app.mjs" defer></script>
+    <script src="js/insertHtmlLoadJS.mjs"></script>
   </head>
   <body>
+    <div id="quiz-name">Радикалы</div>
+    <div id="quiz-name-en">Radicals</div>
     <p class="chemical-elements-list" id="chemical-elements-list">
       CH3 Метил C2H5 Этил C3H7 Пропил C4H9 Бутил C5H11 Пентил C6H13 Гексил C7H15 Гептил C8H17 Октил
       C9H19 Нонил C10H21 Декил
     </p>
-    <nav class="navbar">
-      <ul class="navbar__links">
-        <li class="navbar__link">
-          <a href="index.html">
-            <img
-              class="home-link__icon"
-              src="rcs/icons/home_FILL0_wght400_GRAD0_opsz24.svg"
-              alt=""
-            />
-          </a>
-        </li>
-        <h1 class="navbar__title">Радикалы</h1>
-      </ul>
-    </nav>
-
-    <main class="quiz-container">
-      <header class="quiz-container__title-container">
-        <h1 class="quiz-container__title" id="quiz-title">Alkanes</h1>
-      </header>
-
-      <div class="quiz">
-        <button class="quiz__options-menu-toggle-btn">
-          <img
-            class="options-menu-toggle-btn__icon"
-            src="rcs/icons/settings_FILL0_wght400_GRAD0_opsz24(1).svg"
-            alt=""
-          />
-        </button>
-        <div class="quiz__options-menu quiz__options-menu--hidden" id="quiz-options-menu">
-          <button class="quiz__options-menu-toggle-btn">
-            <img
-              class="options-menu-toggle-btn__icon"
-              src="rcs/icons/settings_FILL0_wght400_GRAD0_opsz24(1).svg"
-              alt=""
-            />
-          </button>
-
-          <div class="quiz__random-mode-checkbox-wrapper">
-            <label for="quiz-random-mode-checkbox" class="quiz__random-mode-label"
-              >Рандом mode</label
-            >
-            <input
-              class="quiz__random-mode-checkbox"
-              type="checkbox"
-              id="quiz-random-mode-checkbox"
-            />
-          </div>
-          <button class="quiz__options-menu-btn" id="quiz-swap-formula-name-btn">
-            Только формулы mode
-          </button>
-          <button
-            class="quiz__options-menu-btn quiz__options-menu-replay-btn"
-            id="quiz-options-menu-replay-btn"
-          >
-            Рестарт лист
-          </button>
-        </div>
-        <div class="quiz__element-info-container">
-          <p
-            class="quiz__element-formula-container quiz__element-formula-container--hidden"
-            id="element-formula-container"
-          >
-            Formula
-          </p>
-          <p class="quiz__element-name-container" id="element-name-container">Element</p>
-        </div>
-        <div class="quiz__input-container">
-          <input
-            class="quiz__input"
-            placeholder="впишите формулу"
-            maxlength="15"
-            type="text"
-            name="quiz-input"
-            id="quiz-input"
-          />
-          <button class="quiz__submit-answer-btn" id="quiz-submit-answer-btn">
-            <img
-              class="quiz-submit-answer-btn__icon"
-              src="rcs/icons/send_FILL0_wght400_GRAD0_opsz24.png"
-              alt=""
-            />
-          </button>
-        </div>
-
-        <button class="quiz__skip-btn" id="quiz-skip-btn">Пропустить</button>
-        <button class="quiz__replay-btn quiz__replay-btn--hidden" id="quiz-replay-btn">
-          Заново
-        </button>
-      </div>
-    </main>
   </body>
 </html>

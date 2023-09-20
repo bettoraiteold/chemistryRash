@@ -9,7 +9,9 @@ const skipButton = document.getElementById("quiz-skip-btn");
 const replayButton = document.getElementById("quiz-replay-btn");
 const quizOptionsMenuReplayButton = document.getElementById("quiz-options-menu-replay-btn");
 const submitAnswerButton = document.getElementById("quiz-submit-answer-btn");
-const optionsMenuToggleButtons = document.querySelectorAll(".quiz__options-menu-toggle-btn");
+const instructionsToggleButton = document.getElementById("quiz-instructions-toggle-btn");
+const quizInstructions = document.getElementById("quiz-instructions");
+const optionsMenuToggleButton = document.getElementById("options-menu-toggle-btn");
 const quizOptionsMenu = document.getElementById("quiz-options-menu");
 const randomModeToggle = document.getElementById("quiz-random-mode-checkbox");
 const swapFormulaNameButton = document.getElementById("quiz-swap-formula-name-btn");
@@ -162,8 +164,11 @@ swapFormulaNameButton.addEventListener("click", () => {
   displayChemicalElementName();
   swapFormulaNameButton.classList.toggle("quiz__options-menu-btn--active");
 });
-optionsMenuToggleButtons.forEach((menuToggleButton) => {
-  menuToggleButton.addEventListener("click", () => {
-    quizOptionsMenu.classList.toggle("quiz__options-menu--hidden");
-  });
+optionsMenuToggleButton.addEventListener("click", () => {
+  quizOptionsMenu.classList.toggle("quiz__options-menu--hidden");
+  instructionsToggleButton.classList.toggle("quiz__toggle-btn--unactive");
+});
+instructionsToggleButton.addEventListener("click", () => {
+  quizInstructions.classList.toggle("quiz__quiz-instructions--hidden");
+  optionsMenuToggleButton.classList.toggle("quiz__toggle-btn--unactive");
 });

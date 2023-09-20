@@ -31,11 +31,11 @@
   row-gap: 70px;
   position: relative;
 }
-.quiz__options-menu-toggle-btn {
+
+.quiz__options-menu-toggle-btn,
+.quiz__quiz-instructions-toggle-btn {
   position: absolute;
   z-index: 3;
-  top: 10px;
-  right: 10px;
   padding: 10px;
   border: none;
   background-color: white;
@@ -44,18 +44,30 @@
   width: 45px;
   transition: all 0.5s;
 }
-.quiz__options-menu-toggle-btn:hover {
+.quiz__options-menu-toggle-btn {
+  top: 10px;
+  right: 10px;
+}
+.quiz__toggle-btn--unactive {
+  opacity: 0.5;
+  pointer-events: none;
+}
+.quiz__quiz-instructions-toggle-btn {
+  top: 10px;
+  left: 10px;
+}
+.quiz__options-menu-toggle-btn:hover,
+.quiz__quiz-instructions-toggle-btn:hover {
   background-color: rgb(216, 216, 216);
 }
-.quiz__options-menu {
+.quiz__options-menu,
+.quiz__quiz-instructions {
   display: flex;
   flex-flow: column;
   align-items: start;
   height: 70%;
   width: 50%;
   position: absolute;
-  right: 0;
-  top: 0;
   z-index: 2;
   row-gap: 10px;
   background-color: white;
@@ -63,14 +75,62 @@
   border-radius: 10px;
   transition: all 1s;
   padding-top: 60px;
+}
+.quiz__quiz-instructions {
+  top: 0;
+  left: 0;
+  width: 70%;
+  height: 80%;
+  align-items: center;
+}
+.quiz__options-menu {
+  right: 0;
+  top: 0;
   padding-left: 10px;
 }
-.quiz__options-menu--hidden {
+.quiz__options-menu--hidden,
+.quiz__quiz-instructions--hidden {
   height: 0%;
   padding-top: 0;
 }
+.quiz__quiz-instructions--hidden > * {
+  opacity: 0;
+}
 .quiz__options-menu--hidden > * {
   opacity: 0;
+}
+.quiz-instructions-section-title {
+  text-align: center;
+  background-color: #ffa07a;
+  padding: 5px 0;
+  font-weight: bold;
+  color: white;
+  margin: 0;
+  margin-bottom: 10px;
+}
+.quiz-instructions__example {
+  padding-left: 10px;
+  font-size: 15px;
+  background-color: rgba(0, 0, 0, 0.1);
+  margin: 0;
+}
+.quiz-instructions__quiz-functions-list {
+  display: flex;
+  flex-flow: column;
+  padding: 0;
+  padding-left: 10px;
+  row-gap: 10px;
+}
+.quiz-instructions__quiz-functions-list li {
+  list-style-type: none;
+  margin: 0;
+}
+.quiz-instructions__quiz-functions-list li p {
+  margin: 0;
+}
+.highlighted {
+  background-color: #aa50e6;
+  color: white;
 }
 .quiz__random-mode-checkbox-wrapper {
   display: flex;

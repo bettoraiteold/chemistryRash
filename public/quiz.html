@@ -15,22 +15,58 @@
   </header>
 
   <div class="quiz">
-    <button class="quiz__options-menu-toggle-btn">
+    <!-- Quiz instructions toggle button-->
+    <button class="quiz__quiz-instructions-toggle-btn" id="quiz-instructions-toggle-btn">
+      <img
+        class="quiz-instructions-toggle-btn__icon"
+        src="rcs/icons/question_mark_FILL0_wght400_GRAD0_opsz24(1).svg"
+        alt=""
+      />
+    </button>
+    <!-- Quiz instructions-->
+
+    <div class="quiz__quiz-instructions quiz__quiz-instructions--hidden" id="quiz-instructions">
+      <div>
+        <p class="quiz-instructions-section-title">Как читать формулы?</p>
+        <p class="quiz-instructions__example">Пример: CH4 - ЦЭ - АШ - ЧЕТЫРЕ</p>
+        <p class="quiz-instructions__example">Пример: C2H6 - ЦЭ - ДВА - АШ - ШЕСТЬ</p>
+      </div>
+      <div>
+        <p class="quiz-instructions-section-title">Функционал викторины</p>
+
+        <ul class="quiz-instructions__quiz-functions-list">
+          <li>
+            <p>
+              <span class="highlighted">Рандом mode</span> - активирует рандомный подбор химических
+              элементов.
+            </p>
+          </li>
+          <li>
+            <p>
+              <span class="highlighted">Только формулы mode</span> - вместо вписывание формулы
+              элемента, вы вписываете его имя.
+            </p>
+          </li>
+          <li>
+            <p>
+              <span class="highlighted">Рестарт лист</span> - подбор химических элементов начинается
+              с самого начала.
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!---->
+    <!-- Quiz options menu toggle button-->
+    <button class="quiz__options-menu-toggle-btn" id="options-menu-toggle-btn">
       <img
         class="options-menu-toggle-btn__icon"
         src="rcs/icons/settings_FILL0_wght400_GRAD0_opsz24(1).svg"
         alt=""
       />
     </button>
+    <!-- Quiz options menu -->
     <div class="quiz__options-menu quiz__options-menu--hidden" id="quiz-options-menu">
-      <button class="quiz__options-menu-toggle-btn">
-        <img
-          class="options-menu-toggle-btn__icon"
-          src="rcs/icons/settings_FILL0_wght400_GRAD0_opsz24(1).svg"
-          alt=""
-        />
-      </button>
-
       <div class="quiz__random-mode-checkbox-wrapper">
         <label for="quiz-random-mode-checkbox" class="quiz__random-mode-label">Рандом mode</label>
         <input class="quiz__random-mode-checkbox" type="checkbox" id="quiz-random-mode-checkbox" />
@@ -45,6 +81,7 @@
         Рестарт лист
       </button>
     </div>
+    <!---->
     <div class="quiz__element-info-container">
       <p
         class="quiz__element-formula-container quiz__element-formula-container--hidden"

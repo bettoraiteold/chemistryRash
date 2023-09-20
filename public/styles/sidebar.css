@@ -32,7 +32,7 @@
   background-color: transparent;
 }
 .sidebar-toggle-btn--active .sidebar-toggle-btn__icon {
-  animation: slide 1s alternate infinite;
+  animation: slide 1.5s alternate infinite;
 }
 @keyframes slide {
   from {

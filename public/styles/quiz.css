@@ -110,12 +110,6 @@
   margin: 0;
   margin-bottom: 10px;
 }
-.quiz-instructions__example {
-  padding-left: 10px;
-  font-size: 15px;
-  background-color: rgba(0, 0, 0, 0.1);
-  margin: 0;
-}
 .quiz-instructions__quiz-functions-list {
   display: flex;
   flex-flow: column;
